@@ -1,9 +1,10 @@
-var express = require('express');
+let express = require('express')
 
-require('./config/database');
+require('./config/database')
 
-var app = express();
-app.get('/', require('./routes/get'));
-app.post('/', require('./routes/post'));
+let app = express()
 
-app.listen(1207);
+app.get('/', require('./routes/get'))
+app.get('/put/:data', require('./routes/post'))
+
+app.listen(1207)
