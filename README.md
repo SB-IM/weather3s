@@ -1,13 +1,17 @@
 # weatherS
 weather station 气象站服务。实时天气信息。开发中。。。。
 
+#### 淘宝模块
+https://item.taobao.com/item.htm?id=21348003785
 
 专业测量数据格式：
 
 A0789B000C0000D0000E0000F0000G0000H0000I0000J0000K0000L0209M703N10233
 
 每0.5秒输出71个字节，包括数据末尾的换行符（OD,OA）
-
+> 0x0d => /r, carrige return
+>
+> 0x0a => /n, new line
 
 
 数据解析：

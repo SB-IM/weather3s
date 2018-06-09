@@ -1,5 +1,5 @@
-var mongoose = require('../config/database')
-var weatherSchema = new mongoose.Schema({
+const mongoose = require('../config/database')
+const weatherSchema = new mongoose.Schema({
   wind_direction_AD: String,
   wind_direction: String,
   wind_speed_Hz: String,
@@ -16,7 +16,6 @@ var weatherSchema = new mongoose.Schema({
   air_pressure: String,
   timestamp: String
 })
-var weather = mongoose.model('weather', weatherSchema)
 
-module.exports = weather
+module.exports = mongoose.model('weather', weatherSchema)
 

@@ -1,4 +1,4 @@
-var weather = require('../models/weather');
+const weather = require('../models/weather');
 
 module.exports = function (req, res) {
   const data = req.params.data.split(/[A-Z]/)
@@ -25,11 +25,12 @@ module.exports = function (req, res) {
   w.save(function (err, d) {
     if (err) {
       //logger.error(err);
-      res.send(`{"code": 0, "msg": "Error happens, please contact system administrator."}`);
+      //res.send(`{"code": 0, "msg": "Error happens, please contact system administrator."}`);
+      res.json({ msg: "Error happens, please contact system administrator." })
     }
     else {
       console.log("save successed")
-      res.json({ user: '233' })
+      res.json({ msg: "save successed" })
     }
   })
         //  res.json({ user: 'tobi' })

@@ -1,4 +1,4 @@
-var Weather = require('../models/weather');
+const Weather = require('../models/weather');
 
 module.exports = function (req, res) {
 
