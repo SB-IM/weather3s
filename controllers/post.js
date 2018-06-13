@@ -1,4 +1,4 @@
-const weather = require('../models/weather');
+const weather = require('../models/weather')
 
 module.exports = function (req, res) {
   const data = req.params.data.split(/[A-Z]/)
