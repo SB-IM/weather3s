@@ -33,3 +33,18 @@ temperature |L0209：| 温度（摄氏度），0.1度，低于零度，首位显
 humidity |M703： | 湿度 0.1 （0％= 99％）
 air_pressure |N10233 | 气压（0.1 hpa）
 
+```
+传感器 -> 天气模块-> serial -> socket -> http -> database
+```
+
+https://github.com/nutechsoftware/ser2sock
+
+
+```
+yarn install
+
+cd dashboard
+yarn install
+yarn build
+```
+
