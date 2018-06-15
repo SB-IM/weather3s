@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h2>更新时间: {{ new Date(Number(this.weather.timestamp)) }}</h2>
+    <h2>{{ (new Date(Number(weather.timestamp))).toDateString() }}</h2>
+    <h2>上次更新: {{ String(weather.date.getHours()) + ':' + String(weather.date.getMinutes()) + ':' + String(weather.date.getSeconds()) }}</h2>
     <h1>风</h1>
     <h2>风向测量AD值: {{ weather.wind_direction_AD }}</h2>
     <h2>风向角度值: {{ weather.wind_direction }}</h2>
@@ -54,6 +55,7 @@ export default {
       .then((response) => {
 
         this.weather =  response.data[0]
+        this.weather.date = new Date(Number(this.weather.timestamp))
         //console.log(response.data[0].wind_direction_AD)
 
       })
