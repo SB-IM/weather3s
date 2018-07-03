@@ -48,3 +48,19 @@ yarn install
 yarn build
 ```
 
+### Interface
+Interface       | Function             | Other
+--------------- | -------------------- | -------
+GET: /put/:data | Upload data          | Requirement Hmac
+GET: /get       | Get the latest data  | Not cors
+
+### 代码分为三部分，可分开部署
+1. toserver.rb 连接ser2sock 的 socket 端口，启动时可指定hmac密钥 `./toserver.rb localhost <token>`
+2. 主体是用 `express.js` 写的服务端。启动是载入密钥 eg: `WEATHER_TOKEN='<token>' pm2 start weather:index.js --update-env`
+3. dashboard/ 目录下属于单独的模块，使用服务端提供的数据接口，需要编译成静态文件才能使用。`yarn install && yarn build`
+
+### Test 上传数据接口
+```sh
+curl -H "x_signture: $(echo -n "A0789B000C0000D0000E0000F0000G0000H0000I0000J0000K0000L0209M703N10233" | openssl dgst -sha256 -hmac "key" | cut -d ' ' -f 2)" localhost:1207/put/A0789B000C0000D0000E0000F0000G0000H0000I0000J0000K0000L0209M703N10233
+```
+
