@@ -1,5 +1,5 @@
 # weatherS
-weather station 气象站服务。实时天气信息。开发中。。。。
+weather station simple service 气象站简单服务。实时天气信息。
 
 #### 淘宝模块
 https://item.taobao.com/item.htm?id=21348003785

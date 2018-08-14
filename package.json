@@ -1,9 +1,9 @@
 {
-  "name": "weatherS",
+  "name": "weather3s",
   "version": "0.1",
-  "description": "weather station service",
+  "description": "weather station simple service",
   "main": "index.js",
-  "repository": "git@github.com:SB-IM/weatherS.git",
+  "repository": "git@github.com:SB-IM/weather3s.git",
   "author": "a-wing <shiyongxin@aliyun.com>",
   "license": "MIT",
   "dependencies": {
