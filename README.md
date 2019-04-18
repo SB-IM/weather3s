@@ -37,7 +37,8 @@ air_pressure |N10233 | 气压（0.1 hpa）
 传感器 -> 天气模块-> serial -> socket -> http -> database
 ```
 
-https://github.com/nutechsoftware/ser2sock
+## serial 转 socket 中间件
+https://sourceforge.net/projects/ser2net/
 
 
 ```
@@ -55,9 +56,11 @@ GET: /put/:data | Upload data          | Requirement Hmac
 GET: /get       | Get the latest data  | Not cors
 
 ### 代码分为三部分，可分开部署
-1. toserver.rb 连接ser2sock 的 socket 端口，启动时可指定hmac密钥 `./toserver.rb localhost <token>`
+0. ser2net 配置文件：`8900:raw:0:/dev/ttyS0:2400 8DATABITS NONE 1STOPBIT` 然后 `systemctl restart ser2net.service`
+1. toserver.rb 连接ser2net 的 socket 端口，启动时可指定hmac密钥 `./toserver.rb localhost <token>`
 2. 主体是用 `express.js` 写的服务端。启动是载入密钥 eg: `WEATHER_TOKEN='<token>' pm2 start weather:index.js --update-env`
 3. dashboard/ 目录下属于单独的模块，使用服务端提供的数据接口，需要编译成静态文件才能使用。`yarn install && yarn build`
+4. 数据库是 `mongodb`
 
 ### Test 上传数据接口
 ```sh
